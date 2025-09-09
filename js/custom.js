@@ -1,0 +1,87 @@
+// GSAP + ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+// ===== Timeline for pinned hero images =====
+let tl = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".hero",
+        start: "center 40%",
+        end: "bottom center",
+        scrub: true,
+        markers: false,
+        pin: true
+    }
+});
+
+// First animation (img-1 moves to X=0)
+tl.to(".img-1-ani", {
+    x: 0,
+    duration: 5
+});
+
+// After first completes (img-3 moves to Y=0)
+tl.to(".img-3-ani", {
+    y: 0,
+    duration: 5
+}, "+=10");
+
+
+// ===== Separate timeline for hero text (not pinned) =====
+let textTl = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".hero-text-ani",
+        start: "60% 20%",     // when text enters viewport
+        end: "+=600",         // controls scroll distance for the whole sequence
+        scrub: true,
+        markers: false,
+    }
+});
+
+// Step 1: move txt-1 left, txt-2 right
+textTl.to(".txt-1", { x: 0, duration: 2 }, 0)
+    .to(".txt-2", { x: 0, duration: 2 }, 0)
+
+    // Step 2: bring them back to opposite sides
+    .to(".txt-1", { x: 350, duration: 2 })
+    .to(".txt-2", { x: -350, duration: 2 }, "<")
+    .to(".hero-gradiant-box", {
+        scaleX: 0.8,
+        duration: 2,
+        transformOrigin: "center center"
+    })
+    // Step 3: fade both out
+    .to([".txt-1", ".txt-2"], { opacity: 0, duration: 1 });
+
+// Step 4: shrink hero-gradiant-box
+
+// ==========================================================
+
+
+
+jQuery(document).ready(function ($) {
+    $(".card").each(function () {
+        let $card = $(this);
+
+        $card.on("mousemove", function (e) {
+            let cardWidth = $card.innerWidth();
+            let cardHeight = $card.innerHeight();
+            let offset = $card.offset();
+            let centerX = offset.left + cardWidth / 2;
+            let centerY = offset.top + cardHeight / 2;
+
+            // Softer rotation (less tilt)
+            let xAxis = (e.pageX - centerX) / 40;
+            let yAxis = (centerY - e.pageY) / 40;
+
+            $card.css("transform", `perspective(1000px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`);
+        });
+
+        $card.hover(function () {
+            $card.toggleClass("has-transform");
+        });
+
+        $card.on("mouseleave", function () {
+            $card.css("transform", `perspective(1000px) rotateY(0deg) rotateX(0deg)`);
+        });
+    });
+});
