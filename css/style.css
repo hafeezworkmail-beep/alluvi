@@ -85,6 +85,9 @@ p {
 
 header {
   padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
 }
 
 header nav {
@@ -101,12 +104,19 @@ header ul li a {
   color: rgb(129, 133, 159);
 }
 
+header ul li .active {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-family: "Manrope";
+  font-weight: 700;
+}
+
 header ul {
   display: flex;
   max-width: 166px;
   width: 100%;
   justify-content: space-between;
-  padding: 15px 20px;
+  padding: 13px 20px;
   border: 1px solid #ffffff1a;
   background-color: #212121cc;
   border-radius: 100px;
@@ -117,7 +127,7 @@ header ul {
 /* hero start */
 
 .hero {
-  padding-top: 42px;
+  padding: 105px 0px 0px;
 }
 
 .hero h1 {
@@ -170,7 +180,7 @@ header ul {
 .hero .labs .center-image {
   max-width: 713px;
   margin-right: -394px;
-  margin-left: -129px;
+  margin-left: -145px;
   line-height: 0;
   position: relative;
 }
@@ -281,8 +291,8 @@ header ul {
     to right,
     #eec5bd,
     #ff8200 0%,
-    #f3b1a5 35%,
-    #c6caf6 72%,
+    #f3b1a5 1%,
+    #c6caf6 69%,
     #dad9e9
   );
   -webkit-background-clip: text;

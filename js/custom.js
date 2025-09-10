@@ -2,6 +2,28 @@
 gsap.registerPlugin(ScrollTrigger);
 
 // ===== Timeline for pinned hero images =====
+let tf = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".hero",
+        start: "10% 5%",
+        end: "60% center",
+        scrub: true,
+        markers: false,
+        pin: false,
+    }
+});
+
+
+// After first completes (img-3 moves to Y=0)
+tf.to(".img-3-ani", {
+    y: -350,
+    duration: 2
+});
+
+
+
+
+// ===== Timeline for pinned hero images =====
 let tl = gsap.timeline({
     scrollTrigger: {
         trigger: ".hero",
@@ -9,7 +31,8 @@ let tl = gsap.timeline({
         end: "bottom center",
         scrub: true,
         markers: false,
-        pin: true
+        pin: true,
+        pinSpacing: true
     }
 });
 
@@ -28,32 +51,56 @@ tl.to(".img-1-ani", {
 }, "+=10");
 
 
-// ===== Separate timeline for hero text (not pinned) =====
-let textTl = gsap.timeline({
+
+
+
+// -----------------------------------
+
+
+let textTx = gsap.timeline({
     scrollTrigger: {
         trigger: ".hero-text-ani",
         start: "60% 20%",     // when text enters viewport
-        end: "+=600",         // controls scroll distance for the whole sequence
+        end: "bottom",         // controls scroll distance for the whole sequence
         scrub: true,
-        markers: false,
+        markers: true,
     }
 });
 
 // Step 1: move txt-1 left, txt-2 right
-textTl.to(".txt-1", { x: 0, duration: 2 }, 0)
-    .to(".txt-2", { x: 0, duration: 2 }, 0)
+// textTx.to(".txt-1", { x: 0, duration: 2 }, 0)
+//     .to(".txt-2", { x: 0, duration: 2 }, 0)
+
+//     // Step 3: fade both out
+//     .to([".txt-1", ".txt-2"], { opacity: 0, duration: 5 });
+
+// Step 4: shrink hero-gradiant-box
+
+
+// ===== Separate timeline for hero text (not pinned) =====
+let textTl = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".hero-text-ani",
+        start: "-50%",     // when text enters viewport
+        end: "bottom",         // controls scroll distance for the whole sequence
+        scrub: true,
+        markers: true
+    }
+});
+
+// Step 1: move txt-1 left, txt-2 right
+textTl.to(".txt-1", { x: 0, duration: 5 }, 0)
+    .to(".txt-2", { x: 0, duration: 5 }, 0)
 
     // Step 2: bring them back to opposite sides
-    .to(".txt-1", { x: 160, duration: 2 })
-    .to(".txt-2", { x: -160, duration: 2 }, "<")
+    .to(".txt-1", { x: 160, duration: 2, opacity: 0 })
+    .to(".txt-2", { x: -160, duration: 2, opacity: 0 }, "<")
     .to(".hero-gradiant-box", {
         scaleX: 0.8,
         duration: 2,
         transformOrigin: "center center"
     })
-    // Step 3: fade both out
-    .to([".txt-1", ".txt-2"], { opacity: 0, duration: 1 });
-
+// Step 3: fade both out
 // Step 4: shrink hero-gradiant-box
 
 // ==========================================================
