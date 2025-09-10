@@ -28,7 +28,7 @@ let tl = gsap.timeline({
     scrollTrigger: {
         trigger: ".hero",
         start: "center 40%",
-        end: "bottom center",
+        end: "bottom 20%",
         scrub: true,
         markers: false,
         pin: true,
@@ -47,8 +47,8 @@ tl.to(".img-3-ani", {
 // First animation (img-1 moves to X=0)
 tl.to(".img-1-ani", {
     x: 0,
-    duration: 5
-}, "+=10");
+    duration: 15
+});
 
 
 
@@ -63,7 +63,7 @@ let textTx = gsap.timeline({
         start: "60% 20%",     // when text enters viewport
         end: "bottom",         // controls scroll distance for the whole sequence
         scrub: true,
-        markers: true,
+        markers: false,
     }
 });
 
@@ -84,7 +84,7 @@ let textTl = gsap.timeline({
         start: "-50%",     // when text enters viewport
         end: "bottom",         // controls scroll distance for the whole sequence
         scrub: true,
-        markers: true
+        markers: false
     }
 });
 

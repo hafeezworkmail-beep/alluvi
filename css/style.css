@@ -183,6 +183,7 @@ header ul {
   margin-left: -145px;
   line-height: 0;
   position: relative;
+  bottom: -12px;
 }
 
 .hero .labs .center-image .main-mob-img {
@@ -305,6 +306,9 @@ header ul {
 
 .experience {
   padding: 90px 0;
+  position: relative;
+  z-index: 999;
+  background-color: #000;
 }
 
 .experience .hero-heading {
