@@ -50,8 +50,26 @@ tl.to(".img-1-ani", {
     duration: 15
 });
 
+// -----------------------------------
+
+// ===== Timeline for pinned hero images =====
+let te = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".integration",
+        start: "10% 5%",
+        end: "60% center",
+        scrub: true,
+        markers: false,
+        pin: false,
+    }
+});
 
 
+// After first completes (img-3 moves to Y=0)
+te.to(".inte-mob-img", {
+    y: 0,
+    duration: 20
+});
 
 
 // -----------------------------------
@@ -152,4 +170,37 @@ jQuery(document).ready(function ($) {
             $card.css("transform", `perspective(1000px) rotateY(0deg) rotateX(0deg)`);
         });
     });
+});
+
+const boxes = document.querySelectorAll(".box");
+
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    },
+    { threshold: 0.2 }
+);
+
+boxes.forEach((box) => observer.observe(box));
+
+
+
+const intImg = document.querySelector(".int-img");
+
+intImg.addEventListener("mousemove", (e) => {
+    const rect = intImg.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+
+    // Only move left/right (-15px to +15px range)
+    const moveX = ((x / rect.width) - 0.5) * 30;
+
+    intImg.style.transform = `translateX(${moveX}px)`;
+});
+
+intImg.addEventListener("mouseleave", () => {
+    intImg.style.transform = "translateX(0)";
 });
