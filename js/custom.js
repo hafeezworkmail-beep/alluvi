@@ -13,15 +13,17 @@ let tl = gsap.timeline({
     }
 });
 
-// First animation (img-1 moves to X=0)
-tl.to(".img-1-ani", {
-    x: 0,
-    duration: 5
-});
 
 // After first completes (img-3 moves to Y=0)
 tl.to(".img-3-ani", {
-    y: 0,
+    y: -632,
+    duration: 5
+});
+
+
+// First animation (img-1 moves to X=0)
+tl.to(".img-1-ani", {
+    x: 0,
     duration: 5
 }, "+=10");
 
@@ -42,8 +44,8 @@ textTl.to(".txt-1", { x: 0, duration: 2 }, 0)
     .to(".txt-2", { x: 0, duration: 2 }, 0)
 
     // Step 2: bring them back to opposite sides
-    .to(".txt-1", { x: 350, duration: 2 })
-    .to(".txt-2", { x: -350, duration: 2 }, "<")
+    .to(".txt-1", { x: 160, duration: 2 })
+    .to(".txt-2", { x: -160, duration: 2 }, "<")
     .to(".hero-gradiant-box", {
         scaleX: 0.8,
         duration: 2,
@@ -55,6 +57,25 @@ textTl.to(".txt-1", { x: 0, duration: 2 }, 0)
 // Step 4: shrink hero-gradiant-box
 
 // ==========================================================
+
+// ===== Separate timeline for hero text (not pinned) =====
+let textTe = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".hero-heading",
+        start: "10% 20%",     // when text enters viewport
+        end: "+=400",         // controls scroll distance for the whole sequence
+        scrub: true,
+        markers: false,
+    }
+});
+
+// Step 3: fade both out
+textTe.to([".exp-text-1", ".exp-text-2"], { opacity: 1, duration: 1 });
+
+// Step 1: move txt-1 left, txt-2 right
+textTe.to(".exp-text-1", { y: 0, scale: 1, duration: 2 }, 0)
+    .to(".exp-text-2", { y: 0, scale: 1, duration: 2 }, 0)
+
 
 
 

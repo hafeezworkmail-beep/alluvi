@@ -14,6 +14,7 @@ html {
 body {
   font-weight: 400;
   background-color: #000000;
+  overflow-x: hidden;
 }
 
 h1,
@@ -148,10 +149,10 @@ header ul {
   text-align: center;
 }
 .hero .labs h2.txt-2 {
-  transform: translateX(-350px);
+  transform: translateX(-160px);
 }
 .hero .labs h2.txt-1 {
-  transform: translateX(350px);
+  transform: translateX(160px);
 }
 .hero .labs h2 {
   font-size: 249px;
@@ -167,15 +168,15 @@ header ul {
 }
 
 .hero .labs .center-image {
-  max-width: 553px;
-  margin-right: -293px;
-  margin-left: -70px;
+  max-width: 713px;
+  margin-right: -394px;
+  margin-left: -129px;
   line-height: 0;
   position: relative;
 }
 
 .hero .labs .center-image .main-mob-img {
-  max-width: 553px;
+  max-width: 713px;
   width: 100%;
   position: relative;
   z-index: 1;
@@ -222,11 +223,11 @@ header ul {
 }
 
 .hero .labs .center-image .mob-img-1 {
-  max-width: 225px;
+  max-width: 294px;
   width: 100%;
   position: absolute;
-  left: 53px;
-  top: 4px;
+  left: 65px;
+  top: -9px;
   z-index: 0;
   /* transform: translateX(600%); */
   /* opacity: 0; */
@@ -238,25 +239,25 @@ header ul {
   transform: translateX(600%);
 }
 .hero .labs .center-image .mob-img-2 {
-  max-width: 225px;
+  max-width: 294px;
   width: 100%;
   position: absolute;
-  left: 53px;
+  left: 68px;
   top: 4px;
   z-index: 0;
   border-radius: 25px;
 }
 
 .hero .labs .center-image .mob-img-3 .img-3-ani {
-  transform: translateY(-481px);
+  transform: translateY(0);
 }
 .hero .labs .center-image .mob-img-3 {
   overflow: hidden;
-  max-width: 225px;
+  max-width: 294px;
   width: 100%;
   position: absolute;
-  left: 53px;
-  top: 4px;
+  left: 66px;
+  top: 9px;
   z-index: 0;
   overflow: hidden;
   /* transform: translateY(-481px); */
@@ -294,6 +295,12 @@ header ul {
 
 .experience {
   padding: 90px 0;
+}
+
+.experience .hero-heading {
+  transform: translateY(-318px) scale(0.6);
+  opacity: 0;
+  z-index: -1;
 }
 
 .experience .exp-heading h2 {
@@ -374,11 +381,30 @@ header ul {
 }
 
 .experience .exp-boxes .box .top-img {
+  position: relative;
+}
+
+.experience .exp-boxes .box .top-img::before {
   background: linear-gradient(
     180deg,
     rgba(48, 54, 61, 0) 38%,
     rgba(48, 54, 61, 1) 98%
   );
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  z-index: 1;
+}
+
+.experience .exp-boxes .box-2 .top-img::before {
+  width: 0;
+}
+
+.experience .exp-boxes .box-4 .top-img::before {
+  width: 0;
 }
 
 .experience .exp-boxes .box-2 {
