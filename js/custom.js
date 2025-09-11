@@ -204,3 +204,60 @@ intImg.addEventListener("mousemove", (e) => {
 intImg.addEventListener("mouseleave", () => {
     intImg.style.transform = "translateX(0)";
 });
+
+
+
+
+
+///-----------------------------------
+const container = document.querySelector(".signup-logo");
+const logo = container.querySelector("img");
+
+container.addEventListener("mousemove", (e) => {
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    // Tilt for the whole div
+    const rotateX = ((y - centerY) / centerY) * 25;
+    const rotateY = ((x - centerX) / centerX) * 25;
+
+    container.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+
+    // Make logo "pop out" in 3D
+    logo.style.transform = `translateZ(40px)`; // adjust depth
+});
+
+container.addEventListener("mouseleave", () => {
+    container.style.transform = "rotateX(0) rotateY(0) scale(1)";
+    logo.style.transform = "translateZ(0)";
+});
+
+
+
+
+
+///--------------------------
+
+gsap.registerPlugin(ScrollTrigger);
+
+// timeline for mode-changing
+let tz = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".coming-soon .mode-changing",
+        start: "center center",        // start when dark-mode reaches top
+        end: "+=1000",           // scroll distance for animation
+        scrub: true,             // smooth scrubbing
+        pin: true,               // pin the section
+        markers: false            // remove in production
+    }
+});
+
+// light-mode height animation
+tz.fromTo(".coming-soon .light-mode",
+    { height: "0vh" },
+    { height: "100vh", ease: "none" }
+);

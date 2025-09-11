@@ -92,6 +92,17 @@ h2 {
   -webkit-text-fill-color: transparent;
 }
 
+h3 {
+  font-size: 32px;
+  line-height: 48px;
+  font-weight: 800;
+  color: #ffffff;
+  background: -webkit-linear-gradient(top, #dddddd, #dddddd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
 /* universal styling end */
 
 /* header start */
@@ -536,17 +547,6 @@ header ul {
   border-radius: 25px;
 }
 
-.integration .track-matrics h3 {
-  font-size: 32px;
-  line-height: 48px;
-  font-weight: 800;
-  background: -webkit-linear-gradient(top, #dddddd, #dddddd);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: #ffffff;
-  text-align: center;
-}
-
 .integration .track-matrics p {
   font-size: 16px;
   line-height: 25px;
@@ -598,7 +598,8 @@ header ul {
   font-size: 75px;
   line-height: 112px;
   font-weight: 800;
-  background: linear-gradient(
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(
     128deg,
     #eec5bd,
     #f3b1a5 26%,
@@ -606,7 +607,6 @@ header ul {
     #dad9e9
   );
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .features .right-column .top-text h3 {
@@ -651,7 +651,6 @@ header ul {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  margin-bottom: 152px;
 }
 
 .coming-soon .links img {
@@ -669,13 +668,19 @@ header ul {
   width: 100%;
   position: relative;
   margin: 0 auto;
+  top: 0;
+  left: 0;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .coming-soon .bottom-img .center-img {
   position: absolute;
-  left: 59px;
-  top: 5px;
-  max-width: 236px;
+  left: 66px;
+  top: 11px;
+  max-width: 230px;
   width: 100%;
   border-radius: 30px;
 }
@@ -717,3 +722,247 @@ header ul {
   font-weight: bold;
   color: #333;
 }
+
+.coming-soon .dark-mode {
+  z-index: 1;
+  background-color: #000;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.coming-soon .light-mode {
+  z-index: 1;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 127vh;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  inset: auto 0% 0%;
+  overflow: hidden;
+}
+
+.coming-soon .mode-changing {
+  position: relative;
+}
+
+.coming-soon .light-mode .bottom-img .center-img {
+  left: 66px;
+  top: 12px;
+  max-width: 230px;
+}
+
+/* .coming-soon end */
+
+/* sign-up start */
+
+.sign-up {
+  background-color: #ffffff;
+  padding: 415px 0 80px;
+}
+
+.sign-up h2 {
+  color: #000000;
+  background: -webkit-linear-gradient(top, #000000, #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sign-up p {
+  color: #000000;
+  max-width: 466px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.sign-up .signup-text {
+  margin-bottom: 80px;
+}
+
+.sign-up .top-boxes .box {
+  max-width: 308px;
+  width: 100%;
+  text-align: center;
+  border-radius: 30px;
+  background-color: #f5f5f8;
+  overflow: hidden;
+}
+
+.sign-up .top-boxes .box h3 {
+  background: -webkit-linear-gradient(top, #000000, #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sign-up .top-boxes .box .inner-text {
+  padding: 64px 24px 48px;
+}
+
+.sign-up .top-boxes .box .top-img img {
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.sign-up .top-boxes {
+  max-width: 1294px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.sign-up .top-boxes .center-box {
+  max-width: 617px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.sign-up .center-box .box {
+  max-width: 617px;
+  width: 100%;
+  padding: 52px 25px 25px;
+}
+
+.sign-up .center-box .box p {
+  max-width: 259px;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.sign-up .top-boxes .box p {
+  font-style: italic;
+}
+
+.sign-up .center-box .logo-box {
+  background-image: url(../images/logo-box-bg-img.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 66px 0;
+}
+
+.sign-up .center-box .logo-box .signup-logo {
+  max-width: 155px;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 33px 0;
+  margin: 0 auto;
+  border-radius: 41px;
+}
+
+.sign-up .signup-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+  perspective: 1000px; /* enable 3D */
+  transform-style: preserve-3d; /* keep children in 3D */
+  will-change: transform;
+}
+
+.sign-up .signup-logo img {
+  transition: transform 0.2s ease;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.sign-up .top-boxes .box .sign-img {
+  position: absolute;
+  left: 37px;
+  top: 11px;
+  max-width: 235px;
+  z-index: -1;
+}
+
+.sign-up .top-boxes .box .bottom-img {
+  position: relative;
+  padding: 0 23px;
+  line-height: 0;
+  z-index: 0;
+  top: 120px;
+  margin-top: -120px;
+}
+
+.sign-up .top-boxes .box .sign-img img {
+  border-radius: 30px;
+}
+
+.sign-up .bottom-boxes .box {
+  max-width: 411px;
+}
+
+.sign-up .bottom-boxes .box p {
+  max-width: 325px;
+}
+
+.sign-up .bottom-boxes {
+  justify-content: inherit;
+  gap: 30px;
+}
+
+/* .sign-up end */
+
+/* footer start */
+
+footer {
+  padding: 28px 0 40px;
+  background-color: #ffffff;
+}
+
+footer .container {
+  max-width: 1294px;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .logo {
+  max-width: 100px;
+  width: 100%;
+  align-self: center;
+}
+
+footer ul li a {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+footer .footer-menu p {
+  font-size: 14px;
+  line-height: 22px;
+  color: #000000;
+}
+
+footer .footer-menu p a {
+  color: #000000;
+}
+
+footer .footer-menu {
+  text-align: center;
+}
+
+footer .footer-menu ul {
+  margin-bottom: 25px;
+}
+
+/* footer end */
